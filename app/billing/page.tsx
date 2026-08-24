@@ -86,11 +86,11 @@ export default function BillingPage() {
           </ul>
 
           {!user ? (
-            <Link href="/signup" className="bg-white border-2 border-black text-black text-center font-black uppercase py-4 shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all block">Sign up for Free</Link>
+            <Link href="/signup" className="bg-white border-2 border-black text-black text-center font-black uppercase italic py-4 shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all block">Sign up for Free</Link>
           ) : !isPro ? (
-            <div className="bg-gray-100 border-2 border-black text-center font-black uppercase py-4 text-gray-500">Current Plan</div>
+            <div className="bg-gray-100 border-2 border-black text-center font-black uppercase italic py-4 text-gray-500">Current Plan</div>
           ) : (
-            <button disabled={loading} onClick={handleCancel} className="bg-white border-2 border-black text-black font-black uppercase py-4 hover:bg-red-100 transition-colors">Downgrade to Free</button>
+            <button disabled={loading} onClick={handleCancel} className="bg-white border-2 border-black text-black font-black uppercase italic py-4 hover:bg-red-100 transition-colors">Downgrade to Free</button>
           )}
         </div>
 
@@ -107,11 +107,11 @@ export default function BillingPage() {
           </ul>
 
           {!user ? (
-            <Link href="/login" className="bg-black border-2 border-black text-white text-center font-black uppercase py-4 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all block">Log in to Upgrade</Link>
+            <Link href="/login" className="bg-black border-2 border-black text-white text-center font-black uppercase italic py-4 shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all block">Log in to Upgrade</Link>
           ) : isPro ? (
-            <div className="bg-emerald-400 border-2 border-black text-center font-black uppercase py-4">Active Plan</div>
+            <div className="bg-emerald-400 border-2 border-black text-center font-black uppercase italic py-4">Active Plan</div>
           ) : (
-            <button disabled={loading} onClick={handleUpgrade} className="bg-black border-2 border-black text-white font-black uppercase py-4 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex items-center justify-center w-full">
+            <button disabled={loading} onClick={handleUpgrade} className="bg-black border-2 border-black text-white font-black uppercase italic py-4 shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex items-center justify-center w-full">
               {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : "Upgrade via Paddle"}
             </button>
           )}

@@ -95,7 +95,7 @@ export default function LeaderboardPage() {
               {topUsers.map((u, i) => (
                 <li key={u.id} className="p-4 sm:px-8 hover:bg-gray-50 transition-colors flex items-center justify-between">
                   <div className="flex items-center gap-6">
-                    <div className={`w-12 h-12 flex items-center justify-center font-black text-xl border-2 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)] ${i === 0 ? "bg-[#FFE66D]" : i === 1 ? "bg-gray-300" : i === 2 ? "bg-orange-300" : "bg-white"}`}>
+                    <div className={`w-12 h-12 flex items-center justify-center font-black text-xl border-2 border-black shadow-[4px_4px_0px_rgba(0,0,0,1)] ${i === 0 ? "bg-[#FFE66D]" : i === 1 ? "bg-gray-300" : i === 2 ? "bg-orange-300" : "bg-white"}`}>
                       #{i + 1}
                     </div>
                     <div>

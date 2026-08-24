@@ -90,10 +90,10 @@ export default function ProfilePage() {
             
             {/* Subscription and Upload Limits Info */}
             <div className="mt-4 flex gap-4">
-               <span className="text-xs font-bold bg-white border-2 border-black px-2 py-1 shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+               <span className="text-xs font-bold bg-white border-2 border-black px-2 py-1 shadow-[4px_4px_0px_rgba(0,0,0,1)]">
                  Plan: {userProfile?.subscription_status === 'active' ? 'PRO' : 'FREE'}
                </span>
-               <Link href="/billing" className="text-xs font-bold bg-white border-2 border-black px-2 py-1 shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none transition-all">
+               <Link href="/billing" className="text-xs font-bold bg-white border-2 border-black px-2 py-1 shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none transition-all">
                  Manage Billing
                </Link>
             </div>
@@ -205,9 +205,9 @@ export default function ProfilePage() {
                        <div className="flex items-start justify-between mb-4">
                          <div className="flex items-center gap-3">
                             {fb.vote === "up" ? (
-                              <div className="border-2 border-black bg-emerald-100 flex items-center justify-center font-black w-8 h-8 shadow-[2px_2px_0px_rgba(0,0,0,1)]">▲</div>
+                              <div className="border-2 border-black bg-emerald-100 flex items-center justify-center font-black w-8 h-8 shadow-[4px_4px_0px_rgba(0,0,0,1)]">▲</div>
                             ) : (
-                              <div className="border-2 border-black bg-red-100 flex items-center justify-center font-black w-8 h-8 shadow-[2px_2px_0px_rgba(0,0,0,1)]">▼</div>
+                              <div className="border-2 border-black bg-red-100 flex items-center justify-center font-black w-8 h-8 shadow-[4px_4px_0px_rgba(0,0,0,1)]">▼</div>
                             )}
                             <span className="text-xs font-black uppercase tracking-widest text-[#1A1A1A]">Project Review</span> 
                          </div>

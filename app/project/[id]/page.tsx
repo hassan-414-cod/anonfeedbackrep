@@ -245,7 +245,7 @@ export default function ProjectPage({ params }: { params: Promise<{ id: string }
         {preview}
         {project.download_permission === "download_allowed" && (
            <div className="absolute top-4 right-4 z-10">
-             <a href={fileUrl} target="_blank" download className="inline-flex items-center px-4 py-2 bg-[#FFE66D] border-2 border-black font-black uppercase text-xs shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all">
+             <a href={fileUrl} target="_blank" download className="inline-flex items-center px-4 py-2 bg-[#FFE66D] border-2 border-black font-black uppercase italic text-xs shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
                <Download className="w-4 h-4 mr-2" /> Download
              </a>
            </div>
@@ -280,10 +280,10 @@ export default function ProjectPage({ params }: { params: Promise<{ id: string }
         
         <div className="p-6 sm:p-10 relative">
           <div className="absolute top-4 right-4 flex gap-2 z-10">
-             <button onClick={handleCopyLink} className="inline-flex items-center px-3 py-2 border-2 border-black bg-white text-[10px] font-black uppercase tracking-widest shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all">
+             <button onClick={handleCopyLink} className="inline-flex items-center px-3 py-2 border-2 border-black bg-white text-[10px] font-black uppercase tracking-widest shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
                 <Share2 className="w-3 h-3 mr-1" /> {copied ? "Copied!" : "Share"}
              </button>
-             <button onClick={() => setReportingItem({type: 'project', id: project.id})} className="inline-flex items-center px-3 py-2 border-2 border-black bg-white text-[10px] font-black uppercase tracking-widest text-red-500 shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all">
+             <button onClick={() => setReportingItem({type: 'project', id: project.id})} className="inline-flex items-center px-3 py-2 border-2 border-black bg-white text-[10px] font-black uppercase tracking-widest text-red-500 shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
                 <Flag className="w-3 h-3 mr-1" /> Report
              </button>
           </div>
@@ -291,7 +291,7 @@ export default function ProjectPage({ params }: { params: Promise<{ id: string }
           <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-6 mb-6 pt-8 sm:pt-0">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <span className={`text-[10px] font-black uppercase px-2 py-1 border-2 border-black ${getCategoryColor(project.category)}`}>
+                <span className={`text-[10px] font-black uppercase italic px-2 py-1 border-2 border-black ${getCategoryColor(project.category)}`}>
                   {project.category}
                 </span>
                 <span className="text-[10px] font-mono font-bold border-2 border-black px-2 py-1 bg-gray-100 opacity-80">
@@ -318,13 +318,13 @@ export default function ProjectPage({ params }: { params: Promise<{ id: string }
 
           <div className="flex items-center gap-8 border-t-4 border-black border-dashed pt-8">
              <div className="flex items-center gap-3 text-emerald-600">
-               <div className="border-2 border-black bg-emerald-100 px-3 py-1 font-black text-2xl shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+               <div className="border-2 border-black bg-emerald-100 px-3 py-1 font-black text-2xl shadow-[4px_4px_0px_rgba(0,0,0,1)]">
                  ▲
                </div>
                <span className="text-4xl font-black">{project.upvotes || 0}</span>
              </div>
              <div className="flex items-center gap-3 text-red-600">
-               <div className="border-2 border-black bg-red-100 px-3 py-1 font-black text-2xl shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+               <div className="border-2 border-black bg-red-100 px-3 py-1 font-black text-2xl shadow-[4px_4px_0px_rgba(0,0,0,1)]">
                  ▼
                </div>
                <span className="text-4xl font-black">{project.downvotes || 0}</span>
@@ -347,10 +347,10 @@ export default function ProjectPage({ params }: { params: Promise<{ id: string }
                 <div>
                    <label className="block text-xs font-black uppercase tracking-widest mb-3">Overall Vote <span className="text-red-500">*</span></label>
                    <div className="flex flex-col sm:flex-row gap-4">
-                     <button type="button" onClick={() => setVote("up")} className={`flex-1 py-4 px-6 border-2 border-black font-black uppercase text-lg flex items-center justify-center gap-3 transition-all ${vote === "up" ? "bg-emerald-400 text-black shadow-[inset_4px_4px_0px_rgba(0,0,0,0.2)]" : "bg-white shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none"}`}>
+                     <button type="button" onClick={() => setVote("up")} className={`flex-1 py-4 px-6 border-2 border-black font-black uppercase italic text-lg flex items-center justify-center gap-3 transition-all ${vote === "up" ? "bg-emerald-400 text-black shadow-[inset_4px_4px_0px_rgba(0,0,0,0.2)]" : "bg-white shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none"}`}>
                         <span className="text-2xl">▲</span> Good
                      </button>
-                     <button type="button" onClick={() => setVote("down")} className={`flex-1 py-4 px-6 border-2 border-black font-black uppercase text-lg flex items-center justify-center gap-3 transition-all ${vote === "down" ? "bg-red-400 text-black shadow-[inset_4px_4px_0px_rgba(0,0,0,0.2)]" : "bg-white shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none"}`}>
+                     <button type="button" onClick={() => setVote("down")} className={`flex-1 py-4 px-6 border-2 border-black font-black uppercase italic text-lg flex items-center justify-center gap-3 transition-all ${vote === "down" ? "bg-red-400 text-black shadow-[inset_4px_4px_0px_rgba(0,0,0,0.2)]" : "bg-white shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none"}`}>
                         <span className="text-2xl">▼</span> Needs Work
                      </button>
                    </div>
@@ -401,17 +401,17 @@ export default function ProjectPage({ params }: { params: Promise<{ id: string }
                
                <div className="flex-shrink-0 flex items-center md:items-start md:flex-col gap-4 w-full md:w-32 border-b-2 border-black md:border-b-0 md:border-r-2 border-dashed pb-4 md:pb-0 md:pr-4">
                  {fb.vote === "up" ? (
-                   <div className="bg-emerald-400 border-2 border-black w-10 h-10 flex items-center justify-center font-black text-xl shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+                   <div className="bg-emerald-400 border-2 border-black w-10 h-10 flex items-center justify-center font-black text-xl shadow-[4px_4px_0px_rgba(0,0,0,1)]">
                      ▲
                    </div>
                  ) : (
-                   <div className="bg-red-400 border-2 border-black w-10 h-10 flex items-center justify-center font-black text-xl shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+                   <div className="bg-red-400 border-2 border-black w-10 h-10 flex items-center justify-center font-black text-xl shadow-[4px_4px_0px_rgba(0,0,0,1)]">
                      ▼
                    </div>
                  )}
                  <div>
                    <div className="font-mono font-bold text-xs bg-gray-100 border border-black px-1.5 py-0.5 inline-block mb-1">{fb.reviewer_handle}</div>
-                   <div className="text-[10px] font-black uppercase text-gray-400">{fb.created_at && formatDistanceToNow(fb.created_at.toDate ? fb.created_at.toDate() : new Date(fb.created_at))} ago</div>
+                   <div className="text-[10px] font-black uppercase italic text-gray-400">{fb.created_at && formatDistanceToNow(fb.created_at.toDate ? fb.created_at.toDate() : new Date(fb.created_at))} ago</div>
                  </div>
                </div>
                
@@ -420,19 +420,19 @@ export default function ProjectPage({ params }: { params: Promise<{ id: string }
                    <div className="space-y-4">
                      {fb.whats_good && (
                        <div>
-                         <span className="text-[10px] font-black uppercase px-2 py-1 bg-emerald-100 border border-black inline-block mb-2">What&apos;s Good</span>
+                         <span className="text-[10px] font-black uppercase italic px-2 py-1 bg-emerald-100 border border-black inline-block mb-2">What&apos;s Good</span>
                          <p className="text-sm font-bold italic whitespace-pre-wrap">{fb.whats_good}</p>
                        </div>
                      )}
                      {fb.whats_improvable && (
                        <div>
-                         <span className="text-[10px] font-black uppercase px-2 py-1 bg-red-100 border border-black inline-block mb-2">Needs Fix</span>
+                         <span className="text-[10px] font-black uppercase italic px-2 py-1 bg-red-100 border border-black inline-block mb-2">Needs Fix</span>
                          <p className="text-sm font-bold italic whitespace-pre-wrap">{fb.whats_improvable}</p>
                        </div>
                      )}
                      {fb.suggested_next_step && (
                        <div>
-                         <span className="text-[10px] font-black uppercase px-2 py-1 bg-[#FFE66D] border border-black inline-block mb-2">Next Step</span>
+                         <span className="text-[10px] font-black uppercase italic px-2 py-1 bg-[#FFE66D] border border-black inline-block mb-2">Next Step</span>
                          <p className="text-sm font-bold border-l-4 border-black pl-4 py-1 whitespace-pre-wrap">{fb.suggested_next_step}</p>
                        </div>
                      )}
@@ -449,7 +449,7 @@ export default function ProjectPage({ params }: { params: Promise<{ id: string }
                       </span>
                     ) : (
                       isOwner && fb.has_text && (
-                        <button onClick={() => handleMarkHelpful(fb.id, fb.reviewer_user_id)} className="text-[10px] font-black uppercase tracking-widest border-2 border-black bg-white px-3 py-1.5 shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all hover:bg-[#FFE66D]">
+                        <button onClick={() => handleMarkHelpful(fb.id, fb.reviewer_user_id)} className="text-[10px] font-black uppercase tracking-widest border-2 border-black bg-white px-3 py-1.5 shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all hover:bg-[#FFE66D]">
                           Mark as Helpful
                         </button>
                       )
@@ -484,7 +484,7 @@ export default function ProjectPage({ params }: { params: Promise<{ id: string }
                 <button 
                   onClick={handleSubmitReport}
                   disabled={reporting}
-                  className="bg-black text-white font-black uppercase tracking-widest text-xs px-6 py-2 shadow-[4px_4px_0px_rgba(255,255,255,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all disabled:opacity-50"
+                  className="bg-black text-white font-black uppercase tracking-widest text-xs px-6 py-2 shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all disabled:opacity-50"
                 >
                   {reporting ? "Submitting..." : "Submit Report"}
                 </button>

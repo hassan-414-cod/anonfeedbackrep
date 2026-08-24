@@ -50,7 +50,7 @@ export default function UploadPage() {
       <div className="w-full max-w-lg mx-auto p-12 mt-12 text-center bg-white border-4 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)]">
         <h2 className="text-2xl font-black uppercase tracking-tighter mb-4">Log in to Upload</h2>
         <p className="text-gray-600 font-bold mb-8">You need an account to upload projects and receive feedback.</p>
-        <Link href="/login" className="inline-block px-8 py-4 bg-black text-white font-black uppercase tracking-widest shadow-[4px_4px_0px_rgba(0,0,0,0.3)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+        <Link href="/login" className="inline-block px-8 py-4 bg-black text-white font-black uppercase tracking-widest shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
           Go to Login
         </Link>
       </div>
@@ -66,7 +66,7 @@ export default function UploadPage() {
       <div className="p-12 text-center max-w-lg mx-auto mt-12 bg-[#FFE66D] border-4 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)]">
         <h2 className="text-2xl font-black uppercase tracking-tighter mb-4">Upload Limit Reached</h2>
         <p className="text-gray-800 font-bold mb-6">You have reached the maximum of {maxUploads} uploads on the Free plan.</p>
-        <Link href="/billing" className="bg-black text-white px-6 py-3 font-black uppercase tracking-widest shadow-[4px_4px_0px_rgba(255,255,255,0.5)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all inline-block">
+        <Link href="/billing" className="bg-black text-white px-6 py-3 font-black uppercase tracking-widest shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all inline-block">
           Upgrade to PRO
         </Link>
       </div>
