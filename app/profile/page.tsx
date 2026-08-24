@@ -45,7 +45,10 @@ export default function ProfilePage() {
   };
 
   useEffect(() => {
-    fetchMine();
+    const timer = setTimeout(() => {
+      fetchMine();
+    }, 0);
+    return () => clearTimeout(timer);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 

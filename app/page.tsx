@@ -37,7 +37,7 @@ export default function HomePage() {
             Upload your projects, share links, and join chat rooms entirely anonymously. Get the brutal truth and real insights without the clout chasing.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Link href="/upload" className="inline-flex items-center justify-center bg-[#FF5A5F] text-white font-bold px-8 py-4 rounded-xl hover:bg-[#ff6e72] transition-colors shadow-sm text-sm tracking-wide uppercase">
+            <Link href="/projects?tab=new" className="inline-flex items-center justify-center bg-[#FF5A5F] text-white font-bold px-8 py-4 rounded-xl hover:bg-[#ff6e72] transition-colors shadow-sm text-sm tracking-wide uppercase">
               UPLOAD NOW <ArrowRight className="ml-2 w-4 h-4" />
             </Link>
             <button className="inline-flex items-center justify-center bg-white text-black font-bold px-8 py-4 rounded-xl hover:bg-gray-50 transition-colors shadow-sm text-sm tracking-wide border border-gray-200 uppercase">
@@ -45,22 +45,31 @@ export default function HomePage() {
             </button>
           </div>
         </div>
+        
+        {/* Live Stats Mini Cards (Inside Hero, Top Right) */}
+        <div className="absolute top-8 right-8 z-20 hidden lg:flex flex-col gap-3">
+          <div className="bg-white/90 backdrop-blur-md rounded-xl p-3 pr-6 shadow-sm border border-white/50 flex items-center gap-4">
+            <div className="w-10 h-10 bg-indigo-50 rounded-lg flex items-center justify-center">
+              <Users className="w-5 h-5 text-indigo-500" />
+            </div>
+            <div>
+              <div className="text-xl font-black text-black leading-none mb-0.5">{activeUsers.toLocaleString()}</div>
+              <div className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Active Users</div>
+            </div>
+          </div>
+          <div className="bg-white/90 backdrop-blur-md rounded-xl p-3 pr-6 shadow-sm border border-white/50 flex items-center gap-4">
+            <div className="w-10 h-10 bg-emerald-50 rounded-lg flex items-center justify-center">
+              <FileText className="w-5 h-5 text-emerald-500" />
+            </div>
+            <div>
+              <div className="text-xl font-black text-black leading-none mb-0.5">{totalProjects.toLocaleString()}</div>
+              <div className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Projects Uploaded</div>
+            </div>
+          </div>
+        </div>
+
         <div className="absolute right-0 top-0 bottom-0 w-2/3 opacity-40 flex items-center justify-center pointer-events-none">
           <div className="w-96 h-96 bg-[#FDD85D] rounded-full blur-3xl translate-x-1/3"></div>
-        </div>
-      </div>
-
-      {/* Live Stats */}
-      <div className="grid grid-cols-2 gap-4 mb-12">
-        <div className="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col items-center justify-center shadow-sm">
-          <Users className="w-8 h-8 text-indigo-500 mb-3" />
-          <div className="text-4xl font-black text-black mb-1">{activeUsers.toLocaleString()}</div>
-          <div className="text-xs font-bold text-gray-500 uppercase tracking-widest">Active Users</div>
-        </div>
-        <div className="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col items-center justify-center shadow-sm">
-          <FileText className="w-8 h-8 text-emerald-500 mb-3" />
-          <div className="text-4xl font-black text-black mb-1">{totalProjects.toLocaleString()}</div>
-          <div className="text-xs font-bold text-gray-500 uppercase tracking-widest">Projects Uploaded</div>
         </div>
       </div>
 
@@ -69,7 +78,7 @@ export default function HomePage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pb-12">
         
         {/* Card 1: Upload Projects */}
-        <Link href="/upload" className="group bg-white rounded-2xl border border-gray-100 p-6 flex flex-col hover:shadow-xl hover:border-gray-200 transition-all shadow-sm">
+        <Link href="/projects?tab=new" className="group bg-white rounded-2xl border border-gray-100 p-6 flex flex-col hover:shadow-xl hover:border-gray-200 transition-all shadow-sm">
           <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
             <Upload className="w-6 h-6" />
           </div>
@@ -81,7 +90,7 @@ export default function HomePage() {
         </Link>
 
         {/* Card 2: Drop a Link */}
-        <Link href="/upload" className="group bg-white rounded-2xl border border-gray-100 p-6 flex flex-col hover:shadow-xl hover:border-gray-200 transition-all shadow-sm">
+        <Link href="/projects?tab=new&type=link" className="group bg-white rounded-2xl border border-gray-100 p-6 flex flex-col hover:shadow-xl hover:border-gray-200 transition-all shadow-sm">
           <div className="w-12 h-12 rounded-xl bg-pink-50 text-pink-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
             <LinkIcon className="w-6 h-6" />
           </div>
@@ -93,7 +102,7 @@ export default function HomePage() {
         </Link>
 
         {/* Card 3: Enter Chat Room */}
-        <div className="group bg-white rounded-2xl border border-gray-100 p-6 flex flex-col hover:shadow-xl hover:border-gray-200 transition-all shadow-sm cursor-pointer">
+        <Link href="/projects?tab=chat" className="group bg-white rounded-2xl border border-gray-100 p-6 flex flex-col hover:shadow-xl hover:border-gray-200 transition-all shadow-sm cursor-pointer">
           <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
             <MessageSquare className="w-6 h-6" />
           </div>
@@ -102,7 +111,7 @@ export default function HomePage() {
           <div className="text-xs font-bold text-emerald-600 uppercase tracking-wider flex items-center">
             Join Chat <ArrowRight className="ml-1 w-3 h-3" />
           </div>
-        </div>
+        </Link>
 
         {/* Card 4: Create Chat Room */}
         <div className="bg-white rounded-2xl border border-gray-100 p-6 flex flex-col shadow-sm">
@@ -119,9 +128,9 @@ export default function HomePage() {
             <option>General Chat</option>
           </select>
           
-          <button className="w-full bg-black text-white font-bold rounded-lg py-2.5 text-sm uppercase tracking-wide hover:bg-gray-800 transition-colors mt-auto">
+          <Link href="/projects?tab=chat" className="w-full bg-black text-white font-bold text-center rounded-lg py-2.5 text-sm uppercase tracking-wide hover:bg-gray-800 transition-colors mt-auto">
             Create Room
-          </button>
+          </Link>
         </div>
 
       </div>

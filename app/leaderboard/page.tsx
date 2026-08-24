@@ -50,7 +50,10 @@ export default function LeaderboardPage() {
   };
 
   useEffect(() => {
-    fetchLeaderboard();
+    const timer = setTimeout(() => {
+      fetchLeaderboard();
+    }, 0);
+    return () => clearTimeout(timer);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeTab]);
 

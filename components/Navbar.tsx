@@ -23,11 +23,12 @@ export default function Navbar() {
             </div>
             <div className="hidden sm:ml-10 sm:flex sm:space-x-8 items-center text-sm font-medium text-gray-500 uppercase tracking-wide">
               <Link href="/feed" className="hover:text-black">Feed</Link>
+              <Link href="/projects" className="hover:text-black">Projects</Link>
               <Link href="/leaderboard" className="hover:text-black">Leaderboard</Link>
             </div>
           </div>
           <div className="flex items-center space-x-4 sm:space-x-6">
-            <Link href="/upload" className="inline-flex items-center px-4 py-2.5 text-sm font-bold bg-[#FDD85D] text-black rounded-lg hover:bg-[#FCE081] transition-colors">
+            <Link href="/projects?tab=new" className="inline-flex items-center px-4 py-2.5 text-sm font-bold bg-[#FDD85D] text-black rounded-lg hover:bg-[#FCE081] transition-colors">
               <Upload className="w-4 h-4 mr-2" /> UPLOAD PROJECT
             </Link>
             
