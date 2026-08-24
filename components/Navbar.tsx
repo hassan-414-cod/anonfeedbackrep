@@ -1,13 +1,17 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { useAuth } from "@/lib/auth-context";
 import { LogOut, Upload } from "lucide-react";
+import AuthModal from "./AuthModal";
 
 export default function Navbar() {
   const { user, userProfile, logout } = useAuth();
+  const [showAuthModal, setShowAuthModal] = useState(false);
 
   return (
+    <>
     <nav className="bg-white border-b border-gray-100 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div className="flex justify-between h-20 items-center">
@@ -18,12 +22,11 @@ export default function Navbar() {
               </Link>
             </div>
             <div className="hidden sm:ml-10 sm:flex sm:space-x-8 items-center text-sm font-medium text-gray-500 uppercase tracking-wide">
-              <Link href="/" className="hover:text-black">Feed</Link>
+              <Link href="/feed" className="hover:text-black">Feed</Link>
               <Link href="/leaderboard" className="hover:text-black">Leaderboard</Link>
             </div>
           </div>
           <div className="flex items-center space-x-4 sm:space-x-6">
-            <Link href="/billing" className="hidden sm:block text-sm font-medium uppercase tracking-wide text-gray-500 hover:text-black">Pricing</Link>
             <Link href="/upload" className="inline-flex items-center px-4 py-2.5 text-sm font-bold bg-[#FDD85D] text-black rounded-lg hover:bg-[#FCE081] transition-colors">
               <Upload className="w-4 h-4 mr-2" /> UPLOAD PROJECT
             </Link>
@@ -47,15 +50,16 @@ export default function Navbar() {
               </>
             ) : (
               <>
-                <Link href="/login" className="hidden sm:block text-sm font-medium uppercase tracking-wide text-gray-500 hover:text-black ml-2">Log in</Link>
-                <Link href="/signup" className="hidden sm:inline-flex items-center px-5 py-2.5 text-sm font-bold bg-[#FF5A5F] text-white rounded-lg hover:bg-[#ff6e72] transition-colors">
+                <button onClick={() => setShowAuthModal(true)} className="hidden sm:inline-flex items-center px-5 py-2.5 text-sm font-bold bg-[#FF5A5F] text-white rounded-lg hover:bg-[#ff6e72] transition-colors">
                   JOIN ANONYMOUSLY
-                </Link>
+                </button>
               </>
             )}
           </div>
         </div>
       </div>
     </nav>
+    <AuthModal isOpen={showAuthModal} onClose={() => setShowAuthModal(false)} />
+    </>
   );
 }
